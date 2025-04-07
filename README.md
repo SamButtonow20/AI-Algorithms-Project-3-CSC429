@@ -1,11 +1,16 @@
 # AI-Algorithms-Project-3-CSC429
 
-## Work Devision:
-
-
+## Work Division
 
 ### Rizik Haddad:
 - SGD and Report
 
-### Sam Buttonow
+### Sam Buttonow:
 - SGD Momentum and Adam
+
+## How to Compile
+
+First, install the required packages:
+
+```bash
+pip install torchvision matplotlib
