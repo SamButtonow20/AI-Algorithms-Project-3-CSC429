@@ -10,7 +10,15 @@
 
 ## How to Compile
 
-First, install the required packages:
+#### First, install the required packages:
 
 ```bash
 pip install torchvision matplotlib
+```
+Make sure Jupyter is install as well 
+```bash
+pip install Jupyter
+```
+#### Simply after that Run All
+
+
