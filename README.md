@@ -22,9 +22,9 @@ Each method was implemented manually using NumPy to better understand how they w
 
 Implemented and analyzed the behavior of vanilla SGD with three fixed learning rates: `0.1`, `0.01`, and `0.001`. Additionally, a version using a decreasing learning rate was included, based on the formula:
 
-```math
-η_t = η_0 / (1 + k * t)
-```
+$$
+\eta_t = \frac{\eta_0}{1 + k \cdot t}
+$$
 
 Where:
 - `η₀ = 0.1`
@@ -80,13 +80,29 @@ Bias correction ensures that the moment estimates are unbiased during early iter
 
 Loss was tracked during training for both versions and compared against SGD and Momentum.
 
+---
+
+## Hyperparameter Tuning Discussion
+
+
+For SGD, three learning rates were tested (0.1, 0.01, 0.001) to evaluate convergence speed and stability. A decreasing learning rate variant provided a balanced approach. 
+
+Momentum used β = 0.9, a standard value known to accelerate convergence while suppressing oscillations. 
+
+For Adam, the default values β₁ = 0.9 and β₂ = 0.999 were used, as they generally work well in practice. 
+
+The ε value was set to 1e-8 to avoid division by zero in parameter updates.
+
+---
+
 ## Results and Observations
 
 ### SGD and Momentum Comparison
 
 The following plot compares the performance of plain SGD with different learning rates and SGD with momentum.
 
-![SGD and Momentum Plot](./plots/sgd_momentum.png)
+![original image](https://cdn.mathpix.com/snip/images/wOs-9FMogN5lcmlRY7ARlsLYL-M5eBAeZvnxZ47TOXM.original.fullsize.png)
+
 
 - **SGD (lr = 0.1)**: Fast initial convergence but fluctuated a lot.
 - **SGD (lr = 0.01)**: Balanced speed and stability, and converged well.
@@ -94,11 +110,14 @@ The following plot compares the performance of plain SGD with different learning
 - **SGD (decreasing lr)**: Started strong like lr=0.1 but smoothed out over time — good overall behavior.
 - **Momentum**: More stable and faster than all SGD variants.
 
+---
+
 ### Adam Comparison
 
 This plot compares the Adam optimizer with and without bias correction.
 
-![Adam Plot](./plots/adam_comparison.png)
+![original image](https://cdn.mathpix.com/snip/images/xZvwIG-FkmFPh7J1O0Opp9hnld6GMejqrNbzMTa8lt4.original.fullsize.png)
+
 
 - **With bias correction**: Most stable and fastest convergence overall.
 - **Without bias correction**: Still effective, but less stable early on.
@@ -116,6 +135,8 @@ Final Momentum Loss: 0.0358
 Final Adam (bias corrected) Loss: 0.0180
 Final Adam (no bias) Loss: 0.0003
 ```
+
+---
 
 ## Summary
 
